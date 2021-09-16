@@ -14,7 +14,7 @@ const requireComponent = require.context(
 
 // Create a reactive object
 
-createApp(App).use(router).provide('GStore', GStore).mount('#app')
+// createApp(App).use(router).provide('GStore', GStore).mount('#app')
 const app = createApp(App)
 requireComponent.keys().forEach((fileName) => {
   const componentConfig = requireComponent(fileName)

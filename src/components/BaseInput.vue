@@ -10,12 +10,15 @@
 </template>
 
 <script>
-
 export default {
   props: {
     label: {
       type: String,
       default: ''
+    },
+    medelValue: {
+        type: [String, Number],
+        default: ''
     }
   }
 }
