@@ -32,19 +32,14 @@
         label="Location"
       />
 
-      <!-- add -->
       <h3>Who is your organizer?</h3>
-      <label>Select an organizer</label>
-      <select v-model="event.organizer.id">
-          <option
-            v-for="option in GStore.organizers"
-            :value="option.id"
-            :key="option.id"
-            :selected="option.id === event.organizer.id"
-          >
-          {{ option.name }}
-          </option>
-      </select>
+
+
+      <BaseSelect
+        :options="GStore.organizers"
+        v-model="event.organizer.id"
+        label="Select an Organizer"
+      />
 
       <button type="submit">Submit</button>
     </form>
@@ -54,14 +49,10 @@
 </template>
 <script>
 import EventService from '@/services/EventService.js'
-//add 5.2
-// import BaseInput from '@/components/BaseInput' //del 5.2
 
 export default {
   inject: ['GStore'],
-  // components: {
-  //   BaseInput
-  // },
+
   data() {
     return {
       event: {
@@ -69,7 +60,6 @@ export default {
         title: '',
         description: '',
         location: '',
-        //add
         organizer: { id: '', name: '' }
       }
     }
